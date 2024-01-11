@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifElseJS-13Task</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <h1 >Task №13</h1>
+
+    <div class="tenthTask">
+        <div class="content">
+            <div class="inputs">
+                <select name="prof" id="prof">
+                    <option value="1">Science</option>
+                    <option value="2">Humanitarian subjects</option>
+                    <option value="3">Art</option>
+                    <option value="4">Sport</option>
+                </select>
+                <select id="subProf" style="display: none;"></select>
+            </div>
+        </div>
+    </div>
+    <div class="result">
+        <button id="submit" style="padding: 5px 10px;">Отправить</button>
+        <div class="results">
+            <p id="output">Нажмите на кнопку</p>
+        </div>
+    </div>
+    <div class="nextTask">
+        <a href="./twentiethTask.html">Предыдущее задание №12...</a>
+        <a href="./fortiethTask.html">Следующее задание №14...</a>
+    </div>
+    <script>
+        let branchSelect = document.getElementById('prof');
+        let subbranchSelect = document.getElementById('subProf');
+        let submitButton = document.getElementById('submit');
+        let outputText = document.getElementById('output');
+
+        branchSelect.addEventListener('change', showNewOptions);
+        submitButton.addEventListener('click', determineProfession);
+
+        function showNewOptions() {
+            subbranchSelect.innerHTML = ''; 
+            let selectedBranch = branchSelect.value;
+            if (selectedBranch === '1') {
+                showOptions(['Math', 'Physics']);
+            } else if (selectedBranch === '2') {
+                showOptions(['History', 'Foreign Languages']);
+            } else if (selectedBranch === '3') {
+                showOptions(['Drawing', 'Singing']);
+            } else if (selectedBranch === '4') {
+                showOptions(['Team', 'Individual']);
+            }
+        }
+
+        function showOptions(options) {
+            subbranchSelect.style.display = 'block';
+
+            options.forEach((option, index) => {
+                let optionElement = document.createElement('option');
+                optionElement.value = index + 1;
+                optionElement.text = option;
+                subbranchSelect.add(optionElement);
+            });
+        }
+
+        function determineProfession() {
+            let selectedBranchText = branchSelect.options[branchSelect.selectedIndex].text;
+            let selectedSubbranchText = subbranchSelect.options[subbranchSelect.selectedIndex].text;
+
+            let profession;
+
+            switch (selectedBranchText) {
+                case 'Science':
+                    profession = selectedSubbranchText === 'Math' ? 'Financier' : 'Engineer';
+                    break;
+                case 'Humanitarian subjects':
+                    profession = selectedSubbranchText === 'History' ? 'Historic or Diplomat' : 'Translator';
+                    break;
+                case 'Art':
+                    profession = selectedSubbranchText === 'Drawing' ? 'Painter or Architect' : 'Singer or Tamada';
+                    break;
+                case 'Sport':
+                    profession = selectedSubbranchText === 'Team' ? 'Footballer or Basketball player' : 'Boxer or Tennis player';
+                    break;
+                default:
+                    profession = 'Undefined';
+            }
+
+            outputText.textContent = `Ваша профессия: ${profession}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifElseJS-4Task</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <h1 >Task №4</h1>
+    <div class="content">
+        <input type="text" id="aValue" placeholder="Введите значение a">
+        <input type="text" id="bValue" placeholder="Введите значение b">
+        <input type="text" id="cValue" placeholder="Введите значение c">
+    </div>
+    <div class="result">
+        <button id="submit">Отправить</button>
+        <div class="results">
+            <p id="output">Вы не ввели значения</p>
+        </div>
+    </div>
+    <div class="nextTask">
+        <a href="./thirdTask.html">Предыдущее задание №3...</a>
+        <a href="./fifthTask.html">Следующее задание №5...</a>
+    </div>
+    <script>
+        let aInput = document.getElementById('aValue');
+        let bInput = document.getElementById('bValue');
+        let cInput = document.getElementById('cValue');
+        let output = document.getElementById('output');
+        document.getElementById('submit').addEventListener('click', myFunc);
+        function myFunc() {
+            let a = parseFloat(aInput.value);
+            let b = parseFloat(bInput.value);
+            let c = parseFloat(cInput.value);
+            if(!isNaN(a) && !isNaN(b) && !isNaN(c)) {
+                let plus = a + b + c;
+                let minus = a - b - c;
+                let multi = a * b * c;
+                output.innerHTML = `${a} + ${b} + ${c} = ${plus} <br>
+                                    ${a} - ${b} - ${c} = ${minus} <br>
+                                    ${a} * ${b} * ${c} = ${multi} <br>`;
+                resetInput();
+            } else {
+                output.innerHTML = 'Вы ввели неправильное значение';
+                resetInput();
+            }
+        }
+        function resetInput() {
+            aInput.value = '';
+            aInput.placeholder = 'Введите значение a';
+            bInput.value = '';
+            bInput.placeholder = 'Введите значение b';
+            cInput.value = '';
+            cInput.placeholder = 'Введите значение c';
+        }
+    </script>
+</body>
+</html>

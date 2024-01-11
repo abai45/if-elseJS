@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifElseJS-15Task</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <h1 >Task №15</h1>
+
+    <div class="content">
+        <input type="text" id="aValue" placeholder="Введите количество денег">
+    </div>
+    <div class="result">
+        <button id="submit">Отправить</button>
+        <div class="results">
+            <p id="output">Вы не ввели значения</p>
+        </div>
+    </div>
+    <div class="nextTask">
+        <a href="./fortiethTask.html">Предыдущее задание №14...</a>
+        <a href="./sixtiethTask.html">Следующее задание №16...</a>
+    </div>
+    <script>
+        let aInput = document.getElementById('aValue');
+        let output = document.getElementById('output');
+        document.getElementById('submit').addEventListener('click', myFunc);
+        function myFunc() {
+            let a = parseFloat(aInput.value);
+            let result1 = Math.floor(a / 380);
+            let USD = 380;
+            if (!isNaN(a)) {
+                let dollars = Math.floor(a / USD);
+                let cents = Math.round((a % USD) * 100) / 100; 
+                if (cents === 0) {
+                    output.innerHTML = `ONLY ${dollars} USD`;
+                } else {
+                    output.innerHTML = `${dollars} USD and ${cents} cents`;
+                }
+                resetInput();
+            } else {
+                console.log('Введите корректное значение');
+                resetInput();
+            }
+        }
+        function resetInput() {
+            aInput.value = '';
+            aInput.placeholder = 'Введите значение a';
+        }
+    </script>
+</body>
+</html>

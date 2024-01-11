@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifElseJS-8Task</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <h1 >Task №8</h1>
+    <div class="sixthTask">
+        <div class="content">
+            <div class="inputs">
+                <input type="text" id="aValue" placeholder="Количество вискасов...">
+            </div>
+        </div>
+    </div>
+    <div class="result">
+        <button id="submit">Отправить</button>
+        <div class="results">
+            <p id="output">Вы не ввели значения</p>
+        </div>
+    </div>
+    <div class="nextTask">
+
+        <a href="./seventhTask.html">Предыдущее задание №7...</a>
+        <a href="./ninthTask.html">Следующее задание №9...</a>
+    </div>
+    <script>
+        let wiskas = 120;
+        let aInput = document.getElementById('aValue');
+        let output = document.getElementById('output');
+        document.getElementById('submit').addEventListener('click', myFunc);
+        function myFunc() {
+            let a = parseFloat(aInput.value);
+            let sum = a*wiskas;
+            if(!isNaN(a)) {
+                if (sum <= 4000) {
+                    output.innerHTML = `Вы должны заплатить - ${sum} тенге`;
+                } else {
+                    let skidka = sum/10;
+                    sum = sum - skidka;
+                    output.innerHTML = `Вы получаете скидку! <br>
+                                        Вы должны заплатить - ${sum}`;
+                }
+                resetInput();
+            } else {
+                output.innerHTML = 'Вы ввели неправильное значение';
+                resetInput();
+            }
+        }
+        function resetInput() {
+            aInput.value = '';
+            aInput.placeholder = 'Количество вискасов...';
+        }
+    </script>
+</body>
+</html>

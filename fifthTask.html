@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifElseJS-5Task</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <h1 >Task №5</h1>
+    <div class="content">
+        <input type="text" id="aValue" placeholder="Количество школьников">
+        <input type="text" id="bValue" placeholder="Количество яблок">
+    </div>
+    <div class="result">
+        <button id="submit">Отправить</button>
+        <div class="results">
+            <p id="output">Вы не ввели значения</p>
+        </div>
+    </div>
+    <div class="nextTask">
+        <a href="./fourthTask.html">Предыдущее задание №4...</a>
+        <a href="./sixthTask.html">Следующее задание №6...</a>
+    </div>
+    <script>
+        let aInput = document.getElementById('aValue');
+        let bInput = document.getElementById('bValue');
+        let output = document.getElementById('output');
+        document.getElementById('submit').addEventListener('click', myFunc);
+        function myFunc() {
+            let a = parseFloat(aInput.value);
+            let b = parseFloat(bInput.value);
+            let result1 = Math.floor(b / a);
+            let result2 = b % a;
+            if(!isNaN(a) && !isNaN(b)) {
+                if (b % a !=0) {
+                    output.innerHTML = `Каждому школьнику достанется - ${result1} яблок<br>
+                                        А в корзине останется - ${result2} яблок` 
+                    resetInput();
+                } else {
+                    output.innerHTML = `Каждому школьнику достанется - ${result1} яблок`
+                    resetInput();
+                }
+            } else {
+                output.innerHTML = 'Вы ввели неправильное значение';
+                resetInput();
+            }
+        }
+        function resetInput() {
+            aInput.value = '';
+            aInput.placeholder = 'Количество школьников';
+            bInput.value = '';
+            bInput.placeholder = 'Количество яблок';
+        }
+    </script>
+</body>
+</html>

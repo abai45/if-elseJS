@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifElseJS-3Task</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <h1 >Task №3</h1>
+    <div class="container">
+        <div class="content">
+            <input type="text" id="name" placeholder="Введите Имя">
+            <input type="text" id="surname" placeholder="Введите Фамилию">
+            <input type="text" id="city" placeholder="Введите Город">
+            <input type="text" id="age" placeholder="Введите Возраст">
+        </div>
+        <div class="result">
+            <button id="submit">Отправить</button>
+            <div class="results">
+                <p id="output">Вы не ввели значения</p>
+            </div>
+        </div>
+    </div>
+    <div class="nextTask">
+        <a href="./secondTask.html">Предыдущее задание №2...</a>
+        <a href="./fourthTask.html">Следующее задание №4...</a>
+    </div>
+    <script>
+        let nameValue = document.getElementById('name');
+        let surnameValue = document.getElementById('surname');
+        let cityValue = document.getElementById('city');
+        let ageValue = document.getElementById('age');
+        let output = document.getElementById('output');
+
+        document.getElementById('submit').addEventListener('click', myFunc);
+        function myFunc() {
+            let name = nameValue.value;
+            let surname = surnameValue.value;
+            let city = cityValue.value;
+            let age = ageValue.value;
+
+            output.innerHTML = `Имя: ${name} <br>
+                                Фамилия: ${surname} <br>
+                                Город: ${city} <br>
+                                Возраст: ${age}`;
+
+        }
+        function resetInput() {
+            nameValue.value = '';
+            nameValue.placeholder = 'Введите Имя';
+            surnameValue.value = '';
+            surnameValue.placeholder = 'Введите Фамилию';
+            cityValue.value = '';
+            cityValue.placeholder = 'Введите Город';
+            ageValue.value = '';
+            ageValue.placeholder = 'Введите Возраст';
+        }
+    </script>
+</body>
+</html>

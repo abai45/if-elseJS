@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifElseJS-10Task</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <h1 >Task №10</h1>
+    <div class="tenthTask">
+        <div class="content">
+            <div class="inputs">
+                <input type="text" class="userName" placeholder="Введите логин">
+                <input type="password" class="password" placeholder="Введите пароль">
+            </div>
+        </div>
+    </div>
+    <div class="result">
+        <button id="submit"  style="padding:5px 10px;">Авторизоваться</button>
+        <div class="results">
+            <p id="output">Вы пока не авторизовались</p>
+        </div>
+    </div>
+    <div class="nextTask">
+        <a href="./ninthTask.html">Предыдущее задание №9...</a>
+        <a href="./eleventhTask.html">Следующее задание №11...</a>
+    </div>
+    <script>
+        let users = {
+            login:'user',
+            password: 'qwerty'
+        };
+        let loginValue = document.querySelector('.userName');
+        let passwordValue = document.querySelector('.password')
+        let output = document.getElementById('output');
+        document.getElementById('submit').addEventListener('click', myFunc);
+        function myFunc() {
+            let login = loginValue.value;
+            let password = passwordValue.value;
+            if (login == users.login && password == users.password) {
+                output.innerHTML = 'Authentication completed';
+            } else {
+                output.innerHTML = 'Invalid login or password';
+            }
+            resetInput();
+        }
+        function resetInput() {
+            loginValue.value = '';
+            loginValue.placeholder = 'Введите логин';
+            passwordValue.value = '';
+            passwordValue.placeholder = 'Введите пароль';
+        }
+    </script>
+</body>
+</html>

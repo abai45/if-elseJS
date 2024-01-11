@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifElseJS-2Task</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <h1 >Task №2</h1>
+    <div class="content">
+        <input type="text" id="aValue" placeholder="Введите значение a">
+        <input type="text" id="bValue" placeholder="Введите значение b">
+        <button id="submit">Отправить</button>
+        <p id="yValue">Вы пока не ввели значение</p>
+    </div>
+    <div class="nextTask">
+        <a href="./index.html">Предыдущее задание №1...</a>
+        <a href="./thirdTask.html">Следующее задание №3...</a>
+    </div>
+    <script>
+        let aInput = document.getElementById('aValue');
+        let bInput = document.getElementById('bValue');
+        let yOutput = document.getElementById('yValue');
+        document.getElementById('submit').addEventListener('click', clickFunc);
+        function clickFunc() {
+            let a = parseInt(aInput.value);
+            let b = parseInt(bInput.value);
+            if (!isNaN(a) && !isNaN(b)) { 
+                if (a%b == 0) {
+                    yOutput.textContent = 'Divisible'
+                } else {
+                    yOutput.textContent = 'Not Divisible'
+                }
+                aInput.value = ''
+                aInput.placeholder = 'Введите значение a'
+                bInput.value = ''
+                bInput.placeholder = 'Введите значение b'
+            } else {
+                yOutput.textContent = 'Вы ввели неверные значения';
+                aInput.value = ''
+                aInput.placeholder = 'Введите значение a'
+                bInput.value = ''
+                bInput.placeholder = 'Введите значение b'
+            }
+        }
+    </script>
+</body>
+</html>

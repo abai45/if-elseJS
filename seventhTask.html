@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifElseJS-7Task</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <h1 >Task №7</h1>
+    <div class="sixthTask">
+        <div class="content">
+            <div class="inputs">
+                <input type="text" id="aValue" placeholder="Средняя скорость машины (км/ч)">
+                <input type="text" id="bValue" placeholder="Дистанция (км)">
+            </div>
+        </div>
+    </div>
+    <div class="result">
+        <button id="submit">Отправить</button>
+        <div class="results">
+            <p id="output">Вы не ввели значения</p>
+        </div>
+    </div>
+    <div class="nextTask">
+        <a href="./sixthTask.html">Предыдущее задание №6...</a>
+        <a href="./eigthTask.html">Следующее задание №8...</a>
+    </div>
+    <script>
+        let currentTime = 15 + 45 / 60;
+        let deadLineTime = 18;
+        let remamingTime = deadLineTime - currentTime;
+        let aInput = document.getElementById('aValue');
+        let bInput = document.getElementById('bValue');
+        let output = document.getElementById('output');
+        document.getElementById('submit').addEventListener('click', myFunc);
+        function myFunc() {
+            let a = parseFloat(aInput.value);
+            let b = parseFloat(bInput.value);
+            if(!isNaN(a) && !isNaN(b)) {
+                let roadTime = b / a;
+                if (roadTime <= remamingTime) {
+                    output.innerHTML = 'Yes, you can reach'
+                } else {
+                    output.innerHTML = 'No, you can not reach'
+                }
+                resetInput();
+            } else {
+                output.innerHTML = 'Вы ввели неправильное значение';
+                resetInput();
+            }
+        }
+        function resetInput() {
+            aInput.value = '';
+            aInput.placeholder = 'Средняя скорость машины (км/ч)';
+            bInput.value = '';
+            bInput.placeholder = 'Дистанция (км)';
+        }
+    </script>
+</body>
+</html>

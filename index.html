@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Task</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <h1 >Task №1</h1>
+    <div class="content">
+        <input type="text" id="xValue" placeholder="Введите значение x">
+        <button id="submit">Отправить</button>
+        <p id="yValue">Значение y равно: 0</p>
+    </div>
+    <div class="nextTask">
+        <a href="./secondTask.html">Следующее задание №2...</a>
+    </div>
+    <script>
+        let input = document.getElementById('xValue');
+        let yOutput = document.getElementById('yValue');
+        document.getElementById('submit').addEventListener('click', clickFunc);
+        function clickFunc() {
+            let x = parseFloat(input.value);
+            if (!isNaN(x)) { 
+                let y = x*x + 2*x - 1;
+                yOutput.textContent = 'Значение y равно: ' + y;
+                input.value = ''
+                input.placeholder = 'Введите значение x'
+            } else {
+                yOutput.textContent = 'Введите корректное число в поле x';
+                input.value = ''
+                input.placeholder = 'Введите значение x'
+            }
+        }
+    </script>
+</body>
+</html>

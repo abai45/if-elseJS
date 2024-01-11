@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifElseJS-6Task</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <h1 >Task №6</h1>
+    <div class="sixthTask">
+        <div class="content">
+            <div class="formula">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Right_triangle_with_notations.svg/1920px-Right_triangle_with_notations.svg.png" alt="">
+            </div>
+            <div class="inputs">
+                <input type="text" id="aValue" placeholder="Введите катет а">
+                <input type="text" id="bValue" placeholder="Введите катет b">
+            </div>
+        </div>
+    </div>
+    <div class="result">
+        <button id="submit">Отправить</button>
+        <div class="results">
+            <p id="output">Вы не ввели значения</p>
+        </div>
+    </div>
+    <div class="nextTask">
+        <a href="./fifthTask.html">Предыдущее задание №5...</a>
+        <a href="./seventhTask.html">Следующее задание №7...</a>
+    </div>
+    <script>
+        let aInput = document.getElementById('aValue');
+        let bInput = document.getElementById('bValue');
+        let output = document.getElementById('output');
+        document.getElementById('submit').addEventListener('click', myFunc);
+        function myFunc() {
+            let a = parseFloat(aInput.value);
+            let b = parseFloat(bInput.value);
+            let result = Math.sqrt(a**2 + b**2);
+            if(!isNaN(a) && !isNaN(b)) {
+                output.innerHTML = `Гипотенуза (с = √a^2+b^2) = ${result}` 
+                resetInput();
+            } else {
+                output.innerHTML = 'Вы ввели неправильное значение';
+                resetInput();
+            }
+        }
+        function resetInput() {
+            aInput.value = '';
+            aInput.placeholder = 'Введите катет а';
+            bInput.value = '';
+            bInput.placeholder = 'Введите катет b';
+        }
+    </script>
+</body>
+</html>

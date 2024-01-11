@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+.content {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    height: 500px;
+    gap: 10px;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:20px;
+}
+.formula img {
+    width: 150px;
+    height: 100px;
+}
+.cat img {
+    width: 150px;
+    height: 200px;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.container .content, .result  {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.container .result {
+    display: flex;
+    height: 500px;
+    justify-content: end;
+    align-items: start;
+}
+.sixthTask .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+.tenthTask .content .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+}
+.content * {
+    margin: 0;
+    padding: 5px;
+    font-size: 16px;
+
+}
+
+.nextTask {
+    margin-top: 10px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    height: 500px;
+    gap:20px;
+}
+.nextTask a {
+    text-decoration: none;
+}
+
+button {
+    padding: 5px 10px;
+}

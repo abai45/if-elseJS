@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifElseJS-9Task</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <h1 >Task №9</h1>
+    <div class="sixthTask">
+        <div class="content">
+            <div class="inputs">
+                <select name="valute" id="valute">
+                    <option value="1">USD</option>
+                    <option value="2">EUR</option>
+                    <option value="3">GBP</option>
+                </select>
+                <input type="text" id="bValue" placeholder="Количество денег в тенге">
+            </div>
+        </div>
+    </div>
+    <div class="result">
+        <button id="submit">Отправить</button>
+        <div class="results">
+            <p id="output">Вы не ввели значения</p>
+        </div>
+    </div>
+    <div class="nextTask">
+        <a href="./eigthTask.html">Предыдущее задание №8...</a>
+        <a href="./tenthTask.html">Следующее задание №10...</a>
+    </div>
+    <script>
+        let USD = 380;
+        let EUR = 430;
+        let GBP = 480;
+        let selectElement = document.getElementById('valute');
+        let bInput = document.getElementById('bValue');
+        let output = document.getElementById('output');
+        document.getElementById('submit').addEventListener('click', myFunc);
+        function myFunc() {
+            let selectValue = selectElement.value;
+            let b = parseFloat(bInput.value);
+            if(!isNaN(b)) {
+                if (selectValue == 1) {
+                    let result = b/USD;
+                    output.innerHTML = `${result.toFixed(2)}`;
+                } else if(selectValue == 2) {
+                    let result = b/EUR;
+                    output.innerHTML = `${result.toFixed(2)}`;
+                } else if(selectValue == 3 ) {
+                    let result = b/GBP;
+                    output.innerHTML = `${result.toFixed(2)}`;
+                }
+                resetInput();
+            } else {
+                output.innerHTML = 'Вы ввели неправильное значение';
+                resetInput();
+            }
+        }
+        function resetInput() {
+            bInput.value = '';
+            bInput.placeholder = 'Количество денег в тенге';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifElseJS-16Task</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <h1 >Task №16</h1>
+
+    <div class="content">
+        <input type="text" id="aValue" placeholder="Введите цифру">
+    </div>
+    <div class="result">
+        <button id="convertButton">Конвертировать</button>
+        <div class="results">
+            <p id="output">Вы не ввели значение</p>
+        </div>
+    </div>
+    <div class="nextTask">
+        <a href="./fiftiethTask.html">Предыдущее задание №15...</a>
+    </div>
+    <script>
+        let aInput = document.getElementById('aValue');
+        let convertButton = document.getElementById('convertButton');
+        let output = document.getElementById('output');
+        convertButton.addEventListener('click', convertTime);
+
+        function convertTime() {
+            let a = parseFloat(aInput.value);
+            if (!isNaN(a)) {
+                let hours = Math.floor(a / 60);
+                let minutes =a % 60;
+
+                if (minutes % 60 ==0) {
+                    output.innerHTML = `ONLY ${hours} HOURS`;
+                } else {
+                    output.innerHTML = `${hours} HOURS and ${minutes} MINUTES`;
+                }
+
+                resetInput();
+            } else {
+                output.innerHTML = 'Введите корректное значение';
+                resetInput();
+            }
+        }
+        function resetInput() {
+            minutesInput.value = '';
+            minutesInput.placeholder = 'Введите цифру';
+        }
+    </script>
+</body>
+</html>

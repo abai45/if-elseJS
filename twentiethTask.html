@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifElseJS-12Task</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <h1 >Task №12</h1>
+
+    <div class="tenthTask">
+        <div class="content">
+            <div class="inputs">
+                <input type="text" id="aValue" placeholder="Введите свою оценку">
+            </div>
+        </div>
+    </div>
+    <div class="result">
+        <button id="submit" style="padding: 5px 10px;">Отправить</button>
+        <div class="results">
+            <p id="output">Вы не ввели значения</p>
+        </div>
+    </div>
+    <div class="nextTask">
+        <a href="./eleventhTask.html">Предыдущее задание №11...</a>
+        <a href="./thirtiethTask.html">Следующее задание №13...</a>
+    </div>
+    <script>
+        let aInput = document.getElementById('aValue');
+        let output = document.getElementById('output');
+        document.getElementById('submit').addEventListener('click', myFunc);
+        function myFunc() {
+            let a = parseFloat(aInput.value);
+            if(!isNaN(a)) {
+                if (a >= 90) {
+                    output.innerHTML = `${a} соответствует оценке A`;
+                } else if (a >= 75) {
+                    output.innerHTML = `${a} соответствует оценке B`;
+                } else if (a >= 60) {
+                    output.innerHTML = `${a} соответствует оценке C`;
+                } else if (a >= 50) {
+                    output.innerHTML = `${a} соответствует оценке D`;
+                } else {
+                    output.innerHTML = `${a} соответствует оценке F`;
+                }
+            } else {
+                output.innerHTML = 'Вы ввели неправильное значение';
+                resetInput();
+            }
+        }
+        function resetInput() {
+            aInput.value = '';
+            aInput.placeholder = 'Введите год';
+        }
+    </script>
+</body>
+</html>
